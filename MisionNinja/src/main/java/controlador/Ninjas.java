@@ -17,4 +17,12 @@ public class Ninjas {
         ninjaDAO dao= new ninjaDAO();
         dao.misionesCompletadas(idNinja);
     }
+
+    public int verificarNinja(int idNinja){
+        ninjaDAO dao = new ninjaDAO();
+        if (dao.verificarId(idNinja)==1){
+            return 1;
+        }
+        return 0;
+    }
 }

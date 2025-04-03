@@ -135,4 +135,26 @@ public class ninjaDAO {
             e.printStackTrace();
         }
     }
+
+    public int verificarId(int idNinja){
+        String sql="select id from ninja where id=?";
+
+        try (Connection connection= connect();
+            PreparedStatement request= connection.prepareStatement(sql)){
+            request.setInt(1, 1);
+
+            ResultSet r= request.executeQuery();
+
+            if (r.next()){
+                System.out.println("Espere nos segundos...");
+            } else {
+                System.out.println("El id " + idNinja + " del ninja no existe :c");
+                return 0;
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return 1;
+    }
 }
